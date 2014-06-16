@@ -1,0 +1,294 @@
+@font-face {
+  font-family:'DIN_Next';
+  font-weight:normal;
+  font-style:normal;
+  src:url('../fonts/dinnextltpro-condensed-webfont.eot');
+  src:url('../fonts/dinnextltpro-condensed-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/dinnextltpro-condensed-webfont.woff') format('woff'), url('../fonts/dinnextltpro-condensed-webfont.ttf') format('truetype'), url('../fonts/dinnextltpro-condensed-webfont.svg#din_next_lt_procondensed') format('svg');
+}
+@font-face {
+  font-family:'DIN_Next';
+  font-weight:bold;
+  font-style:normal;
+  src:url('../fonts/dinnextltpro-boldcondensed-webfont.eot');
+  src:url('../fonts/dinnextltpro-boldcondensed-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/dinnextltpro-boldcondensed-webfont.woff') format('woff'), url('../fonts/dinnextltpro-boldcondensed-webfont.ttf') format('truetype'), url('../fonts/dinnextltpro-boldcondensed-webfont.svg#din_next_lt_probold_condensed') format('svg');
+}
+@font-face {
+  font-family:'DIN_Next';
+  font-weight:200;
+  font-style:normal;
+  src:url('../fonts/dinnextltpro-lightcondensed-webfont.eot');
+  src:url('../fonts/dinnextltpro-lightcondensed-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/dinnextltpro-lightcondensed-webfont.woff') format('woff'), url('../fonts/dinnextltpro-lightcondensed-webfont.ttf') format('truetype'), url('../fonts/dinnextltpro-lightcondensed-webfont.svg#din_next_lt_proLtCn') format('svg');
+}
+
+/* Background colors */
+.bg-red,
+.bg-yellow,
+.bg-aqua,
+.bg-blue,
+.bg-light-blue,
+.bg-green,
+.bg-navy,
+.bg-teal,
+.bg-olive,
+.bg-lime,
+.bg-orange,
+.bg-fuchsia,
+.bg-purple,
+.bg-maroon,
+.bg-black {
+  color: #f9f9f9 !important;
+}
+.bg-dark-gray {
+  background-color: #888 !important;
+}
+.bg-gray {
+  background-color: #eaeaec !important;
+}
+.bg-black {
+  background-color: #222222 !important;
+}
+.bg-red {
+  background-color: #f56954 !important;
+}
+.bg-yellow {
+  background-color: #f39c12 !important;
+}
+.bg-aqua {
+  background-color: #00c0ef !important;
+}
+.bg-blue {
+  background-color: #0073b7 !important;
+}
+.bg-light-blue {
+  background-color: #3c8dbc !important;
+}
+.bg-green {
+  background-color: #00a65a !important;
+}
+.bg-navy {
+  background-color: #001f3f !important;
+}
+.bg-teal {
+  background-color: #39cccc !important;
+}
+.bg-olive {
+  background-color: #3d9970 !important;
+}
+.bg-lime {
+  background-color: #01ff70 !important;
+}
+.bg-orange {
+  background-color: #ff851b !important;
+}
+.bg-fuchsia {
+  background-color: #f012be !important;
+}
+.bg-purple {
+  background-color: #932ab6 !important;
+}
+.bg-maroon {
+  background-color: #85144b !important;
+}
+/* Text colors */
+.text-red {
+  color: #f56954 !important;
+}
+.text-yellow {
+  color: #f39c12 !important;
+}
+.text-aqua {
+  color: #00c0ef !important;
+}
+.text-blue {
+  color: #0073b7 !important;
+}
+.text-light-blue {
+  color: #3c8dbc !important;
+}
+.text-green {
+  color: #00a65a !important;
+}
+.text-navy {
+  color: #001f3f !important;
+}
+.text-teal {
+  color: #39cccc !important;
+}
+.text-olive {
+  color: #3d9970 !important;
+}
+.text-lime {
+  color: #01ff70 !important;
+}
+.text-orange {
+  color: #ff851b !important;
+}
+.text-fuchsia {
+  color: #f012be !important;
+}
+.text-purple {
+  color: #932ab6 !important;
+}
+.text-maroon {
+  color: #85144b !important;
+}
+
+
+body {
+  background:#F3F3F3;
+  font-family:'DIN_Next';
+  font-size:16px;
+}
+
+.container {
+  max-width:700px;
+}
+
+.header-container {
+  position:relative;
+  height:80px;
+  margin-top:30px;
+  z-index:10;
+}
+header {
+  position:relative;
+  background:#fff;
+  width:100%;
+  height:100%;
+}
+  header:after {
+    content:"";
+    position:absolute;
+    width:50%;
+    height:40%;
+    left:25%;
+    bottom:5%;
+    border-radius:50%;
+    z-index:-1;
+    box-shadow:0 5px 16px rgba(0,0,0,0.2);
+  }
+ 
+#podium {
+  position:relative;
+  height:350px;
+}
+  #podium .triangles {
+    position:absolute;
+    top:0;
+    left:50%;
+    width:0;
+    height:0;
+    margin-left:-175px;
+    border-style:solid;
+    border-width:175px;
+    border-color:#DB1512 transparent #35C7FF transparent;
+    z-index:-1;
+  }
+  
+  #podium .name {
+    font-size:40px;
+  }
+  #podium .count {
+    display:inline-block;
+    font-size:25px;
+    font-weight:200;
+    width:30px;
+    height:30px;
+    line-height:30px;
+    margin:0 20px;
+    border:1px solid rgba(255, 255, 255, 0.7);
+    border-radius:50%;
+  }
+  #podium .first {
+    position:absolute;
+    top:0; left:0;
+    width:100%;
+    text-align:center;
+    color:white;
+    height:175px;
+  }
+    #podium .first .name {
+      font-size:60px;
+    }
+  #podium .second-third {
+      position:absolute;
+      top:120px; left:0;
+      width:100%;
+  }
+    #podium .second-third > div {
+      float:left;
+      width:50%;
+      padding:0 50px;
+    }
+    #podium .second-third .count {
+      text-align:center;
+      border-color:rgba(0, 0, 0, 0.5);
+    }
+    #podium .second-third .second {
+      text-align:right;
+    }
+  #podium .bottom {
+    position:absolute;
+    width:100%;
+    text-align:center;
+    left:0;
+    top:230px;
+    font-size:24px;
+    color:white;
+  }
+
+.progress.xs {
+  height:7px;
+}
+.progress.xs .progress-bar {
+  background-image:none;
+}
+.ps-container .ps-scrollbar-y-rail {
+  opacity:0.6;
+}
+
+#list {
+  padding-bottom:15px;
+  background:white;
+}
+  #list [class^=col-] {
+    padding:0;
+  }
+  .helpers-list {
+    padding-right:10px;
+    max-height:210px;
+    background:none;
+    position:relative;
+    overflow:hidden;
+  }
+    .list-bar .pull-left {
+      width:70px;
+      text-align:right;
+      padding-right:5px;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+      letter-spacing:-0.05em;
+    }
+    .list-bar .pull-right {
+      width:20px;
+      padding-left:5px;
+    }
+    .list-bar .progress {
+      margin:8px;
+    }
+
+.twitter-tooltip {
+  width:150px;
+}
+  .twitter-tooltip .media-body {
+    height:48px;
+    overflow:hidden;
+  }
+  .twitter-tooltip .media-header {
+    margin:5px 0 0 0;
+  }
+  .twitter-tooltip .media-object {
+    width:48px;
+    height:48px;
+  }

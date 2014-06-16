@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html ng-app="lbs">
+<head>
+	<meta charset="utf-8">
+	<title>#LeBonSamaritainSQLI</title>
+  <link rel=icon href="http://sqli.com/favicon.ico">
+
+	<link rel=stylesheet href="/assets/bootstrap/dist/css/bootstrap.min.css">
+	<link rel=stylesheet href="/assets/bootstrap/dist/css/bootstrap-theme.min.css">
+	<link rel=stylesheet href="/assets/perfect-scrollbar/min/perfect-scrollbar-0.4.10.min.css">
+
+	<link rel=stylesheet href="/css/app.css">
+</head>
+
+<body>
+  <div class="header-container">
+    <header>
+      <div class="container">
+        <h1>#LeBonSamaritainSQLI</h1>
+      </div>
+    </header>
+  </div>
+  
+<div ng-controller="top">
+  <div id="podium">
+    <div class="container">
+      <div class="triangles"></div>
+      
+      <div class="first">
+        <h3 class="name">{{top[0].name}}</h3>
+        <span class="count">{{top[0].count}}</span>
+      </div>
+      
+      <div class="second-third">
+        <div class="second">
+          <h3 class="name">{{top[1].name}}</h3>
+          <span class="count">{{top[1].count}}</span>
+        </div>
+        <div class="thrid">
+          <h3 class="name">{{top[2].name}}</h3>
+          <span class="count">{{top[2].count}}</span>
+        </div>
+      </div>
+      
+      <div class="bottom">
+        Déjà<br> <span class="count">{{total}}</span><br> remmerciements
+      </div>
+    </div>
+  </div>
+  
+  <div id="list">
+    <div class="container">
+      <div class="col-sm-6">
+        <h3>Top aideurs</h3>
+        <perfect-scrollbar class="helpers-list" wheel-speed="10" suppress-scroll-x="true" include-padding="true" refresh-on-change="counters">
+          <div class="list-bar clearfix" ng-repeat="user in counters.helpers | orderBy:['-count', 'name']">
+            <span class="pull-left">{{user.name}}</span>
+            <small class="pull-right">{{user.count}}</small>
+            <div class="progress xs">
+              <div ng-class="{'progress-bar': true, 'bg-red': $first, 'bg-aqua': $index<3&&!$first, 'bg-dark-gray': $index>2}" style="width:{{user.percent}}%;"></div>
+            </div>
+          </div>
+        </perfect-scrollbar>
+      </div>
+      
+      <div class="col-sm-6">
+        <h3>Top aidés</h3>
+        <perfect-scrollbar class="helpers-list" wheel-speed="10" suppress-scroll-x="true" include-padding="true" refresh-on-change="counters">
+          <div class="list-bar clearfix" ng-repeat="user in counters.helped | orderBy:['-count', 'name']">
+            <span class="pull-left" bs-tooltip="user.image" data-placement="right" data-container="body" data-template="template/lts/twitter-tooltip.tpl">
+              <a href="https://twitter.com/{{user.login}}">{{user.name}}</a>
+            </span>
+            <small class="pull-right">{{user.count}}</small>
+            <div class="progress xs">
+              <div ng-class="{'progress-bar': true, 'bg-red': $first, 'bg-aqua': $index<3&&!$first, 'bg-dark-gray': $index>2}" style="width:{{user.percent}}%;"></div>
+            </div>
+          </div>
+        </perfect-scrollbar>
+      </div>
+    </div>
+  </div>
+</div>
+	
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/assets/jquery/dist/jquery.min.js"></script>
+	<script src="/assets/angular/angular.min.js"></script>
+	<script src="/assets/angular-strap/dist/angular-strap.min.js"></script>
+	<script src="/assets/angular-strap/dist/angular-strap.tpl.min.js"></script>
+	<script src="/assets/angular-socket-io/socket.min.js"></script>
+	<script src="/assets/perfect-scrollbar/min/perfect-scrollbar-0.4.10.with-mousewheel.min.js"></script>
+	<script src="/assets/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
+  
+  <script type="text/ng-template" id="template/lts/twitter-tooltip.tpl">
+    <div class="tooltip twitter-tooltip in" ng-show="title" ng-model="user">
+        <div class="tooltip-arrow"></div>
+        <div class="tooltip-inner media">
+          <div class="pull-left"><img ng-src="{{user.image}}" class="media-object" src="http://a0.twimg.com/sticky/default_profile_images/default_profile_6_normal.png"></div>
+          <div class="media-body"><h4 class="media-header" ng-bind="user.name"></h4></div>
+        </div>
+    </div>
+  </script>
+  
+  <!--<script src="http://platform.twitter.com/widgets.js"></script>
+  
+  <script>
+  $.ajax({
+    url: 'https://api.twitter.com/1/statuses/oembed.json?id=476641550513229825&omit_script=true&callback=?',
+    dataType: 'jsonp',
+    success: function(data) {
+      $('#test').append('<div id="tweet-476641550513229825" style="display:none;">'+data.html+'</div>');
+      
+      twttr.widgets.load($('#tweet-476641550513229825')[0]);
+      
+      $('#tweet-476641550513229825').delay(1000).show();
+    }
+  });
+  </script>-->
+
+	<script src="/js/app.js"></script>
+
+</body>
+</html>

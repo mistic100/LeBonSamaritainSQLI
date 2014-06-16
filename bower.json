@@ -1,0 +1,14 @@
+{
+  "name": "LeBonSamaritainSQLI",
+  "version": "0.0.1",
+	"author": "Damien \"Mistic\" Sorel <mistic@strangeplanet.fr>",
+
+	"dependencies": {
+		"bootstrap": "latest",
+		"angular": "latest",
+    "angular-strap": "latest",
+    "perfect-scrollbar": "latest",
+    "angular-perfect-scrollbar": "git://github.com/itsdrewmiller/angular-perfect-scrollbar.git",
+    "angular-socket-io": "latest"
+	}
+}
