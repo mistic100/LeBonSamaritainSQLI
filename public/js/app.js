@@ -21,7 +21,9 @@ app.controller('top', ['$scope', 'socket', function($scope, socket) {
     $scope.total = 0;
 
     socket.on('countersUpdated', function(counters) {
-        $scope.counters = counters;
+        $scope.$apply(function() {
+            $scope.counters = counters;
+        });
     });
     
     $scope.$watch('counters', function(counters) {

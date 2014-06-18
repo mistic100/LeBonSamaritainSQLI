@@ -12,7 +12,9 @@
 	<link rel=stylesheet href="/css/app.css">
 </head>
 
-<body>
+<body ng-controller="top">
+<div id="wrapper" ng-show="top.length>0">
+  
   <div class="header-container">
     <header>
       <div class="container">
@@ -21,13 +23,13 @@
     </header>
   </div>
   
-<div ng-controller="top">
+<div>
   <div id="podium">
     <div class="container">
       <div class="triangles"></div>
       
       <div class="first">
-        <h3 class="name">{{top[0].name}}</h3>
+        <h3 ng-class="{'name': true, 'smaller': top[0].name.length>10}">{{top[0].name}}</h3>
         <span class="count">{{top[0].count}}</span>
       </div>
       
@@ -36,7 +38,7 @@
           <h3 class="name">{{top[1].name}}</h3>
           <span class="count">{{top[1].count}}</span>
         </div>
-        <div class="thrid">
+        <div class="third">
           <h3 class="name">{{top[2].name}}</h3>
           <span class="count">{{top[2].count}}</span>
         </div>
@@ -80,7 +82,8 @@
     </div>
   </div>
 </div>
-	
+
+</div>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/assets/jquery/dist/jquery.min.js"></script>
 	<script src="/assets/angular/angular.min.js"></script>

@@ -140,6 +140,18 @@ body {
   font-size:16px;
 }
 
+#wrapper {
+  display:block !important;
+  opacity:1;
+  -webkit-transition:all 1s ease;
+  transition:all 1s ease;
+}
+  #wrapper.ng-hide {
+    opacity:0;
+    -webkit-transition:all 0s ease;
+    transition:all 0s ease;
+  }
+
 .container {
   max-width:700px;
 }
@@ -185,9 +197,6 @@ header {
     z-index:-1;
   }
   
-  #podium .name {
-    font-size:40px;
-  }
   #podium .count {
     display:inline-block;
     font-size:25px;
@@ -210,11 +219,17 @@ header {
     #podium .first .name {
       font-size:60px;
     }
+      #podium .name.smaller {
+        font-size:50px;
+      }
   #podium .second-third {
       position:absolute;
       top:120px; left:0;
       width:100%;
   }
+    #podium .second-third .name {
+      font-size:40px;
+    }
     #podium .second-third > div {
       float:left;
       width:50%;
