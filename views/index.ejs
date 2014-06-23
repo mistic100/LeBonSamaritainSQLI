@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html ng-app="lbs">
 <head>
-	<meta charset="utf-8">
-	<title>#LeBonSamaritainSQLI</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+  <title>#LeBonSamaritainSQLI</title>
   <link rel=icon href="http://sqli.com/favicon.ico">
 
-	<link rel=stylesheet href="/assets/bootstrap/dist/css/bootstrap.min.css">
-	<link rel=stylesheet href="/assets/bootstrap/dist/css/bootstrap-theme.min.css">
-	<link rel=stylesheet href="/assets/perfect-scrollbar/min/perfect-scrollbar-0.4.10.min.css">
+  <link rel=stylesheet href="/assets/bootstrap/dist/css/bootstrap.min.css">
+  <link rel=stylesheet href="/assets/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel=stylesheet href="/assets/perfect-scrollbar/min/perfect-scrollbar-0.4.10.min.css">
+  <link rel=stylesheet href="/assets/jqcloud2/dist/jqcloud.min.css">
+  <link rel=stylesheet href="/assets/angular-smilies/dist/angular-smilies-embed.min.css">
 
-	<link rel=stylesheet href="/css/app.css">
+  <link rel=stylesheet href="/css/app.css">
 </head>
 
 <body ng-controller="top">
-<div id="wrapper" ng-show="top.length>0">
+<div id="wrapper" class="ng-hide" ng-show="top.length>0">
   
   <div class="header-container">
     <header>
@@ -23,7 +27,6 @@
     </header>
   </div>
   
-<div>
   <div id="podium">
     <div class="container">
       <div class="triangles"></div>
@@ -81,17 +84,45 @@
       </div>
     </div>
   </div>
-</div>
+  
+  <div id="tweets">
+    <div class="container">
+      <h3>Tweets</h3>
+      <perfect-scrollbar class="tweets-list" wheel-speed="10" suppress-scroll-x="true" include-padding="true" refresh-on-change="tweets">
+        <ul class="media-list">
+          <li class="media tweet" ng-repeat="tweet in tweets">
+            <a class="pull-left" href="https://twitter.com/{{tweet.user.login}}">
+              <img class="media-object" ng-src="{{tweet.user.image}}">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">{{tweet.user.name}}
+                <small>{{tweet.created_at}}</small></h4>
+              <span ng-bind-html="tweet.text | tweet : tweet.target | smilies"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <h3>Hashtags</h3>
+    <jqcloud words="hashtags" auto-resize="true" style="width:100%;height:300px;"></jqcloud>
+  </div>
 
 </div>
-	<script src="/socket.io/socket.io.js"></script>
-	<script src="/assets/jquery/dist/jquery.min.js"></script>
-	<script src="/assets/angular/angular.min.js"></script>
-	<script src="/assets/angular-strap/dist/angular-strap.min.js"></script>
-	<script src="/assets/angular-strap/dist/angular-strap.tpl.min.js"></script>
-	<script src="/assets/angular-socket-io/socket.min.js"></script>
-	<script src="/assets/perfect-scrollbar/min/perfect-scrollbar-0.4.10.with-mousewheel.min.js"></script>
-	<script src="/assets/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/assets/jquery/dist/jquery.min.js"></script>
+  <script src="/assets/angular/angular.min.js"></script>
+  <script src="/assets/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="/assets/angular-strap/dist/angular-strap.min.js"></script>
+  <script src="/assets/angular-strap/dist/angular-strap.tpl.min.js"></script>
+  <script src="/assets/angular-socket-io/socket.min.js"></script>
+  <script src="/assets/perfect-scrollbar/min/perfect-scrollbar-0.4.10.with-mousewheel.min.js"></script>
+  <script src="/assets/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
+  <script src="/assets/jqcloud2/dist/jqcloud.min.js"></script>
+  <script src="/assets/angular-jqcloud/angular-jqcloud.js"></script>
+  <script src="/assets/angular-smilies/dist/angular-smilies.min.js"></script>
   
   <script type="text/ng-template" id="template/lts/twitter-tooltip.tpl">
     <div class="tooltip twitter-tooltip in" ng-show="title" ng-model="user">
@@ -102,24 +133,8 @@
         </div>
     </div>
   </script>
-  
-  <!--<script src="http://platform.twitter.com/widgets.js"></script>
-  
-  <script>
-  $.ajax({
-    url: 'https://api.twitter.com/1/statuses/oembed.json?id=476641550513229825&omit_script=true&callback=?',
-    dataType: 'jsonp',
-    success: function(data) {
-      $('#test').append('<div id="tweet-476641550513229825" style="display:none;">'+data.html+'</div>');
-      
-      twttr.widgets.load($('#tweet-476641550513229825')[0]);
-      
-      $('#tweet-476641550513229825').delay(1000).show();
-    }
-  });
-  </script>-->
 
-	<script src="/js/app.js"></script>
+  <script src="/js/app.js"></script>
 
 </body>
 </html>

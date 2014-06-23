@@ -6,9 +6,13 @@
 	"dependencies": {
 		"bootstrap": "latest",
 		"angular": "latest",
-    "angular-strap": "latest",
-    "perfect-scrollbar": "latest",
-    "angular-perfect-scrollbar": "git://github.com/itsdrewmiller/angular-perfect-scrollbar.git",
-    "angular-socket-io": "latest"
+		"angular-sanitize": "latest",
+		"angular-strap": "latest",
+		"perfect-scrollbar": "latest",
+		"angular-perfect-scrollbar": "git://github.com/itsdrewmiller/angular-perfect-scrollbar.git#master",
+		"angular-socket-io": "latest",
+		"jqcloud2": "git://github.com/mistic100/jQCloud.git#master",
+		"angular-jqcloud": "latest",
+		"angular-smilies": "latest"
 	}
 }

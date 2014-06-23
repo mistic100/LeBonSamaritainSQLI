@@ -1,9 +1,12 @@
 "use strict";
 
 var app = angular.module('lbs', [
-	'perfect_scrollbar',
-  'btford.socket-io',
-  'mgcrea.ngStrap'
+    'ngSanitize',
+    'perfect_scrollbar',
+    'btford.socket-io',
+    'mgcrea.ngStrap',
+    'angular-jqcloud',
+    'angular-smilies'
 ]);
 
 function aoMax(a, k) {
@@ -17,13 +20,19 @@ app.factory('socket', ['socketFactory', function(socketFactory) {
 app.controller('top', ['$scope', 'socket', function($scope, socket) {
 
     $scope.top = [];
+    $scope.hashtags = [];
     $scope.counters = {};
     $scope.total = 0;
+    $scope.tweets = [];
 
     socket.on('countersUpdated', function(counters) {
         $scope.$apply(function() {
             $scope.counters = counters;
         });
+    });
+    
+    socket.on('newTweets', function(tweets) {
+        Array.prototype.unshift.apply($scope.tweets, tweets);
     });
     
     $scope.$watch('counters', function(counters) {
@@ -48,6 +57,23 @@ app.controller('top', ['$scope', 'socket', function($scope, socket) {
             counters.helped.forEach(function(user) {
                 user.percent = Math.round(user.count/max*100);
             });
+            
+            $scope.hashtags = [];
+            counters.hashtags.forEach(function(tag) {
+                $scope.hashtags.push({
+                    text: '#'+tag.name,
+                    weight: tag.count
+                });
+            });
         }
     });
 }]);
+
+app.filter('tweet', function() {
+    return function(input, target) {
+        input = input.replace(new RegExp('([^@]'+target+')', 'gi'), '<span class="target">$1</span>');
+        input = input.replace(/#([0-9a-z_-]+)/gi, '<a href="https://twitter.com/hashtag/$1">#$1</a>');
+        input = input.replace(/@([0-9a-z_-]+)/gi, '<a href="https://twitter.com/$1">@$1</a>');
+        return input;
+    };
+});

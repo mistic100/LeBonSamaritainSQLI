@@ -21,3 +21,15 @@
 
 /public/assets/perfect-scrollbar/*
 !/public/assets/perfect-scrollbar/min
+
+/public/assets/jqcloud2/*
+!/public/assets/jqcloud2/dist
+
+/public/assets/angular-jqcloud/*
+!/public/assets/angular-jqcloud/angular-jqcloud.js
+
+/public/assets/angular-sanitize/*
+!/public/assets/angular-sanitize/angular-sanitize.min.js
+
+/public/assets/angular-smilies/*
+!/public/assets/angular-smilies/dist
