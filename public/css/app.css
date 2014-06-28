@@ -138,6 +138,7 @@ body {
   background:#F3F3F3;
   font-family:'DIN_Next';
   font-size:16px;
+  padding:30px 0 50px 0;
 }
 
 #wrapper {
@@ -159,7 +160,6 @@ body {
 .header-container {
   position:relative;
   height:80px;
-  margin-top:30px;
   z-index:10;
 }
 header {
@@ -179,6 +179,12 @@ header {
     z-index:-1;
     box-shadow:0 5px 16px rgba(0,0,0,0.2);
   }
+
+footer {
+  text-align:center;
+  font-size:0.9em;
+  margin-top:50px;
+}
  
 #podium {
   position:relative;
@@ -223,9 +229,9 @@ header {
         font-size:50px;
       }
   #podium .second-third {
-      position:absolute;
-      top:120px; left:0;
-      width:100%;
+    position:absolute;
+    top:120px; left:0;
+    width:100%;
   }
     #podium .second-third .name {
       font-size:40px;
@@ -251,6 +257,38 @@ header {
     font-size:24px;
     color:white;
   }
+
+@media (max-width:460px) {
+  #podium {
+    height:300px;
+  }
+    #podium .triangles {
+      margin-left:-150px;
+      border-width:150px;
+    }
+  
+  #podium .first {
+    height:150px;
+  }
+    #podium .first .name {
+      font-size:50px;
+    }
+      #podium .name.smaller {
+        font-size:40px;
+      }
+  #podium .second-third {
+    top:100px;
+  }
+    #podium .second-third .name {
+      font-size:30px;
+    }
+    #podium .second-third > div {
+      padding:0 40px;
+    }
+  #podium .bottom {
+    top:185px;
+  }
+}
 
 .progress.xs {
   height:7px;
@@ -313,4 +351,24 @@ header {
     position:relative;
     overflow:hidden;
     max-height:300px;
+    box-shadow:0 0 5px rgba(0,0,0,0.4);
+    border-radius:6px;
+  }
+  .tweets-list .tweet {
+    background:#fff;
+    margin:0;
+    padding:15px;
+    border:1px solid #d8d8d8;
+    border-bottom-width:0px;
+  }
+    .tweets-list .tweet:nth-child(2n+1) {
+      background:#F5F8FA;
+    }
+  .tweets-list .target {
+    color:#B00;
+    font-style:italic;
+    margin-right:0.2em;
+  }
+  .tweets-list .media-object {
+    border-radius:6px;
   }
