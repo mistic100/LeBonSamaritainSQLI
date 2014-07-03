@@ -6,12 +6,18 @@ var app = angular.module('lbs', [
     'btford.socket-io',
     'mgcrea.ngStrap',
     'angular-jqcloud',
-    'angular-smilies'
+    'angular-smilies',
+    'angularMoment',
+    'nodesGraph'
 ]);
 
 function aoMax(a, k) {
     return Math.max.apply(Math, a.map(function(o){ return o[k]; }))
 }
+
+app.run(['amMoment', function(amMoment) {
+  amMoment.changeLanguage('fr');
+}]);
 
 app.factory('socket', ['socketFactory', function(socketFactory) {
     return socketFactory();

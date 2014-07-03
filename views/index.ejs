@@ -96,12 +96,18 @@
             </a>
             <div class="media-body">
               <h4 class="media-heading">{{tweet.user.name}}
-                <small>{{tweet.created_at}}</small></h4>
+                <small>le {{tweet.created_at | amDateFormat: 'Do MMMM à HH:mm'}}</small></h4>
               <span ng-bind-html="tweet.text | tweet : tweet.target | smilies"></span>
             </div>
           </li>
         </ul>
       </perfect-scrollbar>
+    </div>
+  </div>
+  
+  <div id="graph">
+    <div class="container">
+      <nodes-graph data="counters.helped"></nodes-graph>
     </div>
   </div>
   
@@ -115,18 +121,22 @@
   </footer>
 
 </div>
-  <script src="/socket.io/socket.io.js"></script>
   <script src="/assets/jquery/dist/jquery.min.js"></script>
   <script src="/assets/angular/angular.min.js"></script>
   <script src="/assets/angular-sanitize/angular-sanitize.min.js"></script>
   <script src="/assets/angular-strap/dist/angular-strap.min.js"></script>
   <script src="/assets/angular-strap/dist/angular-strap.tpl.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
   <script src="/assets/angular-socket-io/socket.min.js"></script>
   <script src="/assets/perfect-scrollbar/min/perfect-scrollbar-0.4.10.with-mousewheel.min.js"></script>
   <script src="/assets/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
   <script src="/assets/jqcloud2/dist/jqcloud.min.js"></script>
   <script src="/assets/angular-jqcloud/angular-jqcloud.js"></script>
   <script src="/assets/angular-smilies/dist/angular-smilies.min.js"></script>
+  <script src="/assets/moment/min/moment.min.js"></script>
+  <script src="/assets/moment/lang/fr.js"></script>
+  <script src="/assets/angular-moment/angular-moment.min.js"></script>
+  <script src="/assets/d3/d3.min.js"></script>
   
   <script type="text/ng-template" id="template/lts/twitter-tooltip.tpl">
     <div class="tooltip twitter-tooltip in" ng-show="title" ng-model="user">
@@ -138,6 +148,7 @@
     </div>
   </script>
 
+  <script src="/js/graph.js"></script>
   <script src="/js/app.js"></script>
 
 </body>

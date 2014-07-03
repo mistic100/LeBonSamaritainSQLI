@@ -350,7 +350,7 @@ footer {
   .tweets-list {
     position:relative;
     overflow:hidden;
-    max-height:300px;
+    max-height:395px;
     box-shadow:0 0 5px rgba(0,0,0,0.4);
     border-radius:6px;
   }
@@ -371,4 +371,48 @@ footer {
   }
   .tweets-list .media-object {
     border-radius:6px;
+  }
+  
+#graph {}
+  #graph svg {
+    margin:0 auto;
+    display:block;
+  }
+  #graph .node {
+    font: 300 12px "Calibri", Arial, sans-serif;
+    fill: #bbb;
+  }
+
+  #graph .link {
+    stroke: #888;
+    stroke-opacity: .4;
+    fill: none;
+    pointer-events: none;
+  }
+
+  #graph .node:hover,
+  #graph .node--active {
+    font-weight: 700;
+  }
+
+  #graph .node-source {
+    fill: #5E843A;
+  }
+
+  #graph .node-target {
+    fill: #394B9F;
+  }
+
+  #graph .link--source,
+  #graph .link--target {
+    stroke-opacity: 0.6;
+    stroke-width: 2px;
+  }
+
+  #graph .link--source {
+    stroke: #5E843A;
+  }
+
+  #graph .link--target {
+    stroke: #394B9F;
   }

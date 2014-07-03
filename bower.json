@@ -11,8 +11,9 @@
 		"perfect-scrollbar": "latest",
 		"angular-perfect-scrollbar": "git://github.com/itsdrewmiller/angular-perfect-scrollbar.git#master",
 		"angular-socket-io": "latest",
-		"jqcloud2": "git://github.com/mistic100/jQCloud.git#master",
 		"angular-jqcloud": "latest",
-		"angular-smilies": "latest"
+		"angular-smilies": "latest",
+    "angular-moment": "latest",
+    "d3": "latest"
 	}
 }

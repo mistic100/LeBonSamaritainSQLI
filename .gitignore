@@ -33,3 +33,15 @@
 
 /public/assets/angular-smilies/*
 !/public/assets/angular-smilies/dist
+
+/public/assets/angular-moment/*
+!/public/assets/angular-moment/angular-moment.min.js
+
+/public/assets/d3/*
+!/public/assets/d3/d3.min.js
+
+/public/assets/moment/*
+!/public/assets/moment/min
+!/public/assets/moment/lang
+/public/assets/moment/lang/*
+!/public/assets/moment/lang/fr.js
