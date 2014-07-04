@@ -1,5 +1,8 @@
 /node_modules
 
+/public/all.css
+/public/all.js
+
 /public/assets/angular/*
 !/public/assets/angular/angular.min.js
 

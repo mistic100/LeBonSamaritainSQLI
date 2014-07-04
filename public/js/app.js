@@ -1,3 +1,4 @@
+(function(){
 "use strict";
 
 var app = angular.module('lbs', [
@@ -5,7 +6,6 @@ var app = angular.module('lbs', [
     'perfect_scrollbar',
     'btford.socket-io',
     'mgcrea.ngStrap',
-    'angular-jqcloud',
     'angular-smilies',
     'angularMoment',
     'nodesGraph'
@@ -83,3 +83,5 @@ app.filter('tweet', function() {
         return input;
     };
 });
+
+}());

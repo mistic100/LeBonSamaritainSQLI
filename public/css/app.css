@@ -149,8 +149,8 @@ body {
 #wrapper {
   display:block !important;
   opacity:1;
-  -webkit-transition:all 1s ease 0.5s;
-  transition:all 1s ease 0.5s;
+  -webkit-transition:all 1s ease;
+  transition:all 1s ease;
 }
   #wrapper.ng-hide {
     opacity:0;
