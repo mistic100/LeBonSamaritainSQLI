@@ -1,15 +1,15 @@
-var http = require('http'),
-    express = require('express'),
+var express = require('express'),
     socketio = require('socket.io'),
     
-    TwitterReader = require('./lib/twitter-reader.js'),
-    SocketClient = require('./lib/socket-client.js'),
+    TwitterReader = require('./lib/twitter-reader'),
+    SocketClient = require('./lib/socket-client'),
 
-    port = Number(process.env.PORT || 8080),
+    config = require('./config'),
     
     app = express(),
-    server = app.listen(port),
+    server = app.listen(config.httpPort),
     io = socketio.listen(server),
+    
     reader = new TwitterReader(),
     socket = new SocketClient();
 

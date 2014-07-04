@@ -19,8 +19,8 @@
 <body ng-controller="top">
 <div id="wrapper" class="ng-hide" ng-show="top.length>0">
   
-  <div class="header-container">
-    <header>
+  <div id="header-container">
+    <header class="shadow-bottom">
       <div class="container">
         <h1>#LeBonSamaritainSQLI</h1>
       </div>
@@ -53,10 +53,10 @@
     </div>
   </div>
   
-  <div id="list">
+  <div id="list" class="shadow-top shadow-bottom">
     <div class="container">
       <div class="col-sm-6">
-        <h3>Top aideurs</h3>
+        <h3 class="block-title"><span>Top aideurs</span></h3>
         <perfect-scrollbar class="helpers-list" wheel-speed="10" suppress-scroll-x="true" include-padding="true" refresh-on-change="counters">
           <div class="list-bar clearfix" ng-repeat="user in counters.helpers | orderBy:['-count', 'name']">
             <span class="pull-left">{{user.name}}</span>
@@ -69,7 +69,7 @@
       </div>
       
       <div class="col-sm-6">
-        <h3>Top aidés</h3>
+        <h3 class="block-title"><span>Top aidés</span></h3>
         <perfect-scrollbar class="helpers-list" wheel-speed="10" suppress-scroll-x="true" include-padding="true" refresh-on-change="counters">
           <div class="list-bar clearfix" ng-repeat="user in counters.helped | orderBy:['-count', 'name']">
             <span class="pull-left" bs-tooltip="user.image" data-placement="right" data-container="body" data-template="template/lts/twitter-tooltip.tpl">
@@ -87,7 +87,7 @@
   
   <div id="tweets">
     <div class="container">
-      <h3>Tweets</h3>
+      <h3 class="block-title darker"><span>Tweets</span></h3>
       <perfect-scrollbar class="tweets-list" wheel-speed="10" suppress-scroll-x="true" include-padding="true" refresh-on-change="tweets">
         <ul class="media-list">
           <li class="media tweet" ng-repeat="tweet in tweets">
@@ -105,8 +105,9 @@
     </div>
   </div>
   
-  <div id="graph">
+  <div id="graph" class="shadow-top shadow-bottom">
     <div class="container">
+      <h3 class="block-title"><span>Réseau</span></h3>
       <nodes-graph data="counters.helped"></nodes-graph>
     </div>
   </div>

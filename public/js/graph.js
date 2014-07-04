@@ -47,10 +47,17 @@ angular.module('nodesGraph', []).directive('nodesGraph', function() {
         .attr("dy", ".31em")
         .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + (d.y + 8) + ",0)" + (d.x < 180 ? "" : "rotate(180)"); })
         .style("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
-        .text(function(d) { return d.key; })
+        .text(function(d) { return ellipsis(d.name); })
         .on("mouseover", mouseovered(node, link))
         .on("mouseout", mouseouted(node, link));
-  };
+  }
+  
+  function ellipsis(text) {
+    if (text.length > 13) {
+      return text.slice(0, 12) + '…';
+    }
+    return text;
+  }
   
   function mouseovered(node, link) {
     return function(d) {
