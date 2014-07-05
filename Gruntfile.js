@@ -19,14 +19,31 @@ module.exports = function(grunt) {
                         'public/assets/angular-moment/angular-moment.js',
                         'public/assets/d3/d3.js',
                         'public/js/graph.js',
-                        'public/js/app.js',
+                        'public/js/app.js'
                     ],
                     
                     'public/all.css': [
                         'public/assets/bootstrap/dist/css/bootstrap-theme.css',
                         'public/assets/perfect-scrollbar/src/perfect-scrollbar.css',
                         'public/assets/angular-smilies/dist/angular-smilies-embed.css',
-                        'public/css/app.css',
+                        'public/css/app.css'
+                    ]
+                }
+            }
+        },
+        
+        replace: {
+            css: {
+                options: {
+                    usePrefix: false,
+                    patterns: [{
+                        match: '\\.\\./',
+                        replacement: ''
+                    }]
+                },
+                files: {
+                    'public/all.css': [
+                        'public/all.css'
                     ]
                 }
             }
@@ -36,7 +53,7 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     'public/all.min.js': [
-                      'public/all.js'
+                        'public/all.js'
                     ]
                 }
             }
@@ -49,7 +66,7 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     'public/all.min.css': [
-                      'public/all.css'
+                        'public/all.css'
                     ]
                 }
             }
@@ -57,11 +74,13 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.registerTask('default', [
         'concat',
+        'replace',
         'uglify',
         'cssmin'
     ]);

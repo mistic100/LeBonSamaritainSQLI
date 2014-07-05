@@ -8,14 +8,15 @@
   <link rel=icon href="http://sqli.com/favicon.ico">
 
   <link rel=stylesheet href="/assets/bootstrap/dist/css/bootstrap.min.css">
-  <link rel=stylesheet href="/all.min.css">
   
-  <!---
+  <% if (mode=="production") { %>
+  <link rel=stylesheet href="/all.min.css">
+  <% } else { %>
   <link rel=stylesheet href="/assets/bootstrap/dist/css/bootstrap-theme.min.css">
   <link rel=stylesheet href="/assets/perfect-scrollbar/min/perfect-scrollbar-0.4.10.min.css">
   <link rel=stylesheet href="/assets/angular-smilies/dist/angular-smilies-embed.min.css">
   <link rel=stylesheet href="/css/app.css">
-  <!---->
+  <% } %>
 </head>
 
 <body ng-controller="top">
@@ -130,9 +131,10 @@
   </script>
   
   <script src="/socket.io/socket.io.js"></script>
-  <script src="/all.min.js"></script>
   
-  <!--
+  <% if (mode=="production") { %>
+  <script src="/all.min.js"></script>
+  <% } else { %>
   <script src="/assets/jquery/dist/jquery.min.js"></script>
   <script src="/assets/angular/angular.min.js"></script>
   <script src="/assets/angular-sanitize/angular-sanitize.min.js"></script>
@@ -148,7 +150,7 @@
   <script src="/assets/d3/d3.min.js"></script>
   <script src="/js/graph.js"></script>
   <script src="/js/app.js"></script>
-  <!---->
+  <% } %>
 
 </body>
 </html>

@@ -446,7 +446,8 @@ footer {
 
 /* GRAPH */
 #graph {
-  background:white;
+  background:#fff url('../img/mainbg.jpg') center center no-repeat;
+  background-size:927px 464px;
 }
   #graph svg {
     margin:0 auto;
