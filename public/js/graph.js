@@ -24,6 +24,33 @@ angular.module('nodesGraph', []).directive('nodesGraph', function() {
         .attr("height", diameter)
       .append("g")
         .attr("transform", "translate(" + radius + "," + radius + ")");
+        
+    var gradient = svg.append("svg:defs")
+        .append("svg:radialGradient")
+        .attr("id", "background");
+
+    gradient.append("svg:stop")
+        .attr("offset", "20%")
+        .attr("stop-color", "#ffffff")
+        .attr("stop-opacity", 0.6);
+
+    gradient.append("svg:stop")
+        .attr("offset", "60%")
+        .attr("stop-color", "#94DFF7")
+        .attr("stop-opacity", 0.3);
+
+    gradient.append("svg:stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#ffffff")
+        .attr("stop-opacity", 0);
+    
+    svg.append("rect")
+        .attr("width", diameter)
+        .attr("height", diameter)
+        .attr("x", -radius)
+        .attr("y", -radius)
+        .style("fill", "url(#background)")
+        .classed("background", true);
 
     var link = svg.append("g").selectAll(".link"),
         node = svg.append("g").selectAll(".node");

@@ -11,11 +11,12 @@ var config = {
     
     mongoUri: process.env.MONGOLAB_URI || 'mongodb://localhost:27017/sqli',
     httpPort: process.env.PORT || 8080,
+    mode: process.argv[2] || 'production',
     
     matcher: /^Merci ([a-z]+) /i,
     hashtag: 'LeBonSamaritainSQLI'.toLowerCase(),
     startDate: moment('2014-06-16T00:00:00+02:00').toDate(),
-    endDate: moment('2014-08-18T00:00:00+02:00').toDate()
+    endDate: moment('2014-09-07T00:00:00+02:00').toDate()
 };
 
 

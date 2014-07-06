@@ -5,7 +5,6 @@ var express = require('express'),
     SocketClient = require('./lib/socket-client'),
 
     config = require('./config'),
-    mode = process.argv[2] || 'production',
     
     app = express(),
     server = app.listen(config.httpPort),
@@ -21,7 +20,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
     res.render('index', {
-        mode: req.query.mode || mode
+        mode: req.query.mode || config.mode
     });
 });
 
