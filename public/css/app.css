@@ -319,8 +319,8 @@ footer {
 }
 @media (max-width:768px) {
   .shadow-top:before, .shadow-bottom:after {
-    width:120%;
-    left:-10%;
+    width:100%;
+    left:0%;
   }
 }
 
